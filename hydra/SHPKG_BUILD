@@ -26,4 +26,5 @@ remove(){
 	${SHPKG_SUDO} rm -rf $PREFIX/bin/hydra
 	${SHPKG_SUDO} rm -rf $PREFIX/share/applications/xhydra.desktop
 	${SHPKG_SUDO} rm -rf $PREFIX/bin/xhydra
+	${SHPKG_SUDO} rm -rf $PREFIX/bin/dpl4hydra.sh
 }

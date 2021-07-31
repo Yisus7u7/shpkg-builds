@@ -1,0 +1,28 @@
+# package name
+shpkg_name="feathernotes"
+
+# package build and runtime dependencies
+shpkg_build_depends="clang make qt5-qttools cmake clang"
+shpkg_depends="qt5-qtbase qt5-qtsvg libx11 hunspell"
+
+# package source code
+shpkg_source="https://github.com/tsujan/FeatherNotes/releases/download/V0.9.0/FeatherNotes-0.9.0.tar.xz"
+
+prepare(){
+	cd ${SRCDIR}
+	mkdir build && cd build
+	cmake -DCMAKE_INSTALL_PREFIX=$PREFIX
+}
+
+build(){
+	make
+}
+
+finish(){
+	echo "Installing feathernotes..."
+	${SHPKG_SUDO} make install
+}
+
+remove(){
+   echo "no complete"
+}
