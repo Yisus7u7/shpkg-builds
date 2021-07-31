@@ -11,7 +11,7 @@ shpkg_source="https://github.com/tsujan/FeatherNotes/releases/download/V0.9.0/Fe
 prepare(){
 	cd ${SRCDIR}
 	mkdir build && cd build
-	cmake -DCMAKE_INSTALL_PREFIX=$PREFIX
+	cmake -DCMAKE_INSTALL_PREFIX=$PREFIX ..
 }
 
 build(){
