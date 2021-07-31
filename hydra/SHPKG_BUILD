@@ -1,0 +1,29 @@
+# package name
+shpkg_name="hydra shell/gtk"
+
+# package build and runtime dependencies
+shpkg_build_depends="clang, make"
+shpkg_depends="openssl, openssl-tool, libssh, gtk2, gtk3"
+
+# package source code
+shpkg_source="https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.2.tar.gz"
+
+prepare(){
+	cd ${SRCDIR}
+	./configure --prefix=/data/data/com.termux/files/usr
+}
+
+build(){
+	make
+}
+
+finish(){
+	echo "Installing hydra and Xhydra"
+	${SHPKG_SUDO} make install
+}
+
+remove(){
+	${SHPKG_SUDO} rm -rf $PREFIX/bin/hydra
+	${SHPKG_SUDO} rm -rf $PREFIX/share/applications/xhydra.desktop
+	${SHPKG_SUDO} rm -rf $PREFIX/bin/xhydra
+}
