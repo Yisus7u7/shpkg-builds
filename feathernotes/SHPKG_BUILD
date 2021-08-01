@@ -2,11 +2,13 @@
 shpkg_name="feathernotes"
 
 # package build and runtime dependencies
-shpkg_build_depends="clang make qt5-qttools cmake clang"
-shpkg_depends="qt5-qtbase qt5-qtsvg libx11 hunspell"
+shpkg_build_depends="clang make qt5-qttools cmake"
+shpkg_depends="qt5-qtbase qt5-qtsvg libx11 hunspell hicolor-icon-theme"
 
 # package source code
-shpkg_source="https://github.com/tsujan/FeatherNotes/releases/download/V0.9.0/FeatherNotes-0.9.0.tar.xz"
+shpkg_source="https://github.com/tsujan/FeatherNotes"
+
+shpkg_src_use_git="true"
 
 prepare(){
 	cd ${SRCDIR}
@@ -24,5 +26,10 @@ finish(){
 }
 
 remove(){
-   echo "no complete"
+        ${SHPKG_SUDO} rm -rf $PREFIX/bin/feathernotes
+        ${SHPKG_SUDO} rm -rf $PREFIX/share/translations
+        ${SHPKG_SUDO} rm -rf $PREFIX/share/metainfo/feathernotes.metainfo.xml
+        ${SHPKG_SUDO} rm -rf $PREFIX/share/mime/packages/feathernotes.xml
+        ${SHPKG_SUDO} rm -rf $PREFIX/share/applications/feathernotes.desktop 
+  
 }
