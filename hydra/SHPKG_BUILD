@@ -27,4 +27,11 @@ remove(){
 	${SHPKG_SUDO} rm -rf $PREFIX/share/applications/xhydra.desktop
 	${SHPKG_SUDO} rm -rf $PREFIX/bin/xhydra
 	${SHPKG_SUDO} rm -rf $PREFIX/bin/dpl4hydra.sh
+        ${SHPKG_SUDO} rm -rf $PREFIX/bin/hydra-wizard.sh
+        ${SHPKG_SUDO} rm -rf $PREFIX/bin/pw-inspector
+        ${SHPKG_SUDO} rm -rf $PREFIX/etc/dpl4hydra_local.csv
+        ${SHPKG_SUDO} rm -rf $PREFIX/etc/dpl4hydra_full.csv
+        ${SHPKG_SUDO} rm -rf $PREFIX/man/man1/xhydra.1
+        ${SHPKG_SUDO} rm -rf $PREFIX/man/man1/pw-inspector.1
+        ${SHPKG_SUDO} rm -rf $PREFIX/man/man1/hydra.1
 }
