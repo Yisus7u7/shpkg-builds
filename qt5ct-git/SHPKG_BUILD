@@ -20,7 +20,6 @@ build(){
 }
 
 finish(){
-        cd ${SRCDIR}
         ${SHPKG_SUDO} mkdir -p $PREFIX/libexec/qt/platformthemes
         ${SHPKG_SUDO} mkdir -p $PREFIX/libexec/qt/styles
         ${SHPKG_SUDO} mkdir -p $PREFIX/share/applications
