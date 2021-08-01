@@ -1,0 +1,24 @@
+# package name
+shpkg_name="pfetch fast system info in the shell | v0.6.0"
+
+# package build and runtime dependencies
+shpkg_depends="bash"
+
+# package source code
+shpkg_source="https://github.com/dylanaraps/pfetch/archive/refs/tags/0.6.0.tar.gz"
+
+prepare(){
+	cd ${SRCDIR}
+	sleep 4
+build(){
+	make install
+}
+
+finish(){
+	echo "succesfull!"
+        sleep 2
+}
+
+remove(){
+	${SHPKG_SUDO} rm -rf $PREFIX/bin/pfetch
+}
