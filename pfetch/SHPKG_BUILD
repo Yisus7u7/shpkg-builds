@@ -2,6 +2,8 @@
 shpkg_name="pfetch fast system info in the shell | git build"
 
 # package build and runtime dependencies
+shpkg_build_depends=""
+
 shpkg_depends="bash"
 
 # package source code
@@ -10,18 +12,21 @@ shpkg_source="https://github.com/dylanaraps/pfetch"
 shpkg_src_use_git="true"
 
 prepare(){
-	     cd ${SRCDIR}
-	     sleep 4
+	  cd ${SRCDIR}
+	  sleep 4
+}
+
 build(){
-	    make install
+        make
 }
 
 finish(){
-	     echo "succesfull!"
+	 make install
+         echo "succesfull!"
          sleep 2
 }
 
 remove(){
-	     ${SHPKG_SUDO} rm -rf $PREFIX/bin/pfetch
+	 ${SHPKG_SUDO} rm -rf $PREFIX/bin/pfetch
 }
 
