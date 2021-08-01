@@ -1,0 +1,44 @@
+# package name
+shpkg_name="qt5ct - theme manager for qt5"
+
+# package build and runtime dependencies
+shpkg_build_depends="clang make qt5-qttools"
+shpkg_depends="qt5-qtsvg qt5-qtbase"
+
+# package source code
+shpkg_source="https://github.com/desktop-app/qt5ct"
+
+shpkg_src_use_git="true"
+
+prepare(){
+	cd ${SRCDIR}
+	qmake PREFIX=$PREFIX
+}
+
+build(){
+	make
+}
+
+finish(){
+        cd ${SRCDIR}
+        ${SHPKG_SUDO} mkdir -p $PREFIX/libexec/qt/platformthemes
+        ${SHPKG_SUDO} mkdir -p $PREFIX/libexec/qt/styles
+        ${SHPKG_SUDO} mkdir -p $PREFIX/share/applications
+        ${SHPKG_SUDO} mkdir -p $PREFIX/share/qt5ct/colors
+        ${SHPKG_SUDO} mkdir -p $PREFIX/share/qt5ct/qss
+	${SHPKG_SUDO} make install
+        ${SHPKG_SUDO} cp -rf ./src/qt5ct-qtplugin/libqt5ct.so $PREFIX/libexec/qt/platformthemes/libqt5ct.so
+        ${SHPKG_SUDO} cp -rf ./src/qt5ct-style/libqt5ct-style.so $PREFIX/libexec/qt/styles/libqt5ct-style.so
+        ${SHPKG_SUDO} cp -rf ./src/qt5ct/qt5ct $PREFIX/bin/qt5ct
+        ${SHPKG_SUDO} cp -rf ./src/qt5ct/qt5ct.desktop $PREFIX/share/applications/qt5ct.desktop
+        ${SHPKG_SUDO} cp -rf ./qss/* $PREFIX/share/qt5ct/qss/
+        ${SHPKG_SUDO} cp -rf ./colors/* $PREFIX/share/qt5ct/colors/
+}
+
+remove(){
+	${SHPKG_SUDO} rm -rf $PREFIX/bin/qt5ct
+	${SHPKG_SUDO} rm -rf $PREFIX/share/applications/qt5ct.desktop
+	${SHPKG_SUDO} rm -rf $PREFIX/libexec/qt/platformthemes/libqt5ct.so
+	${SHPKG_SUDO} rm -rf $PREFIX/libexec/qt/styles/libqt5ct-style.so
+        ${SHPKG_SUDO} rm -rf $PREFIX/share/qt5ct
+}

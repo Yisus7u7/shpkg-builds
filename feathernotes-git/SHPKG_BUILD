@@ -1,5 +1,5 @@
 # package name
-shpkg_name="feathernotes"
+shpkg_name="feathernotes | Qt notes app"
 
 # package build and runtime dependencies
 shpkg_build_depends="clang make qt5-qttools cmake"

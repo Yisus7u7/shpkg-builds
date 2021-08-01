@@ -1,5 +1,5 @@
 # package name
-shpkg_name="hydra shell/gtk"
+shpkg_name="hydra cmd/GUI | v9.2"
 
 # package build and runtime dependencies
 shpkg_build_depends="clang make"
