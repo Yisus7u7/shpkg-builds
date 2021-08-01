@@ -13,7 +13,7 @@ shpkg_src_use_git="true"
 prepare(){
 	cd ${SRCDIR}
 	mkdir build && cd build
-	cmake -DCMAKE_INSTALL_PREFIX=$PREFIX
+	cmake -DCMAKE_INSTALL_PREFIX=$PREFIX ..
 }
 
 build(){
