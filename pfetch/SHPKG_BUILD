@@ -4,7 +4,7 @@ shpkg_name="pfetch fast system info in the shell | git build"
 # package build and runtime dependencies
 shpkg_build_depends=""
 
-shpkg_depends=""
+shpkg_depends="make git"
 
 # package source code
 shpkg_source="https://github.com/dylanaraps/pfetch"
