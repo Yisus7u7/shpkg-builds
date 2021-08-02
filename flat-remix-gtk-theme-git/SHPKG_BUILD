@@ -1,0 +1,28 @@
+# package name
+shpkg_name="flat-remix-gtk-theme | git build"
+
+# package build and runtime dependencies
+shpkg_build_depends="make"
+shpkg_depends="gtk2 gtk3"
+
+# package source code
+shpkg_source="https://github.com/daniruiz/flat-remix-gtk"
+
+shpkg_src_use_git="true"
+
+prepare(){
+	 cd ${SRCDIR}
+}
+
+build(){
+	make
+}
+
+finish(){
+	echo "Installing flat-remix-gtk-theme..."
+	${SHPKG_SUDO} make install
+}
+
+remove(){
+        ${SHPKG_SUDO} rm -rf $PREFIX/share/themes/Flat-Remix-GTK-*
+}
