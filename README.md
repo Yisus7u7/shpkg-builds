@@ -27,6 +27,7 @@ If when installing a package it tells you that if you want to delete the build d
 - feathernotes
 - qt5ct
 - pfetch 
+- flat-remix-gtk-theme
 
 > Over time more packages will be added 
 
