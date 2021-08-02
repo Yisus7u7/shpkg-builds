@@ -15,6 +15,9 @@ pkg update
 pkg install make cmake clang x11-repo
 ```
 
+Add repo url for shpkg packages :
+
+
 ```bash
 echo "https://yisus7u7.github.io/shpkg-builds/packages.tar.xz" >> ~/.config/shpkg_repo.list
 ```
