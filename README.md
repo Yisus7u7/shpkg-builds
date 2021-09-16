@@ -21,6 +21,11 @@ Add repo url for shpkg packages :
 ```bash
 echo "https://yisus7u7.github.io/shpkg-builds/packages.tar.xz" >> ~/.config/shpkg_repo.list
 ```
+
+And run :
+
+`shpkg update`
+
 If when installing a package it tells you that if you want to delete the build dependencies after installation, please do not accept that option
 
 
