@@ -1,0 +1,38 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# package name
+shpkg_name="file-roller | GNOME archive manager"
+
+# package build and runtime dependencies
+shpkg_build_depends="clang ninja cmake"
+shpkg_depends="openssl gtk3 libnotify cpio libconfig json-glib libarchive glib unzip unrar bsdtar zip p7zip"
+
+# package source code
+shpkg_source="https://github.com/GNOME/file-roller/archive/refs/tags/3.40.0.tar.gz"
+
+prepare(){
+	pip install meson
+	cd ${SRCDIR}
+	meson --prefix=$PREFIX build
+}
+
+build(){
+	ninja -C build
+}
+
+finish(){
+	ninja install -C build
+}
+
+remove(){
+	${SHPKG_SUDO} rm -rf $PREFIX/bin/file-roller
+	${SHPKG_SUDO} rm -rf $PREFIX/share/applications/org.gnome.FileRoller.desktop
+	${SHPKG_SUDO} rm -rf $PREFIX/libexec/file-roller/
+	${SHPKG_SUDO} rm -rf $PREFIX/share/dbus-1/services/org.gnome.FileRoller.service
+    ${SHPKG_SUDO} rm -rf $PREFIX/share/dbus-1/services/org.gnome.ArchiveManager1.service
+    ${SHPKG_SUDO} rm -rf $PREFIX/share/metainfo/org.gnome.FileRoller.appdata.xml
+    ${SHPKG_SUDO} rm -rf $PREFIX/share/glib-2.0/schemas/org.gnome.FileRoller.gschema.xml
+    ${SHPKG_SUDO} rm -rf $PREFIX/share/file-roller
+    ${SHPKG_SUDO} rm -rf $PREFIX/share/icons/hicolor/scalable/apps/org.gnome.ArchiveManager.*
+    ${SHPKG_SUDO} rm -rf $PREFIX/share/icons/hicolor/symbolic/apps/org.gnome.ArchiveManager-symbolic.svg
+}
