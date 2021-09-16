@@ -3,7 +3,7 @@ shpkg_name="hydra cmd/GUI | v9.2"
 
 # package build and runtime dependencies
 shpkg_build_depends="clang make"
-shpkg_depends="openssl openssl-tool libssh gtk2 gtk3"
+shpkg_depends="openssl openssl-tool libssh gtk2 gtk3 sslscan libcap ncurses-utils libidn libcrypt libedit libpcreposix pcre libssh zlib wget gtk2 gtk3 libglade db"
 
 # package source code
 shpkg_source="https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.2.tar.gz"
