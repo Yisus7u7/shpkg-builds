@@ -1,6 +1,9 @@
-# package name
-shpkg_name="pfetch fast system info in the shell | git build"
-
+#!/bin/bash
+# package info
+shpkg_name="pfetch"
+shpkg_description="fast system info in the shell | git build"
+shpkg_source=https://github.com/dylanaraps/pfetch
+shpkg_VERSION=0.6.0
 # package build and runtime dependencies
 shpkg_build_depends=""
 
