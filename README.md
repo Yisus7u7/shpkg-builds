@@ -19,7 +19,7 @@ Add repo url for shpkg packages :
 
 
 ```bash
-echo "https://yisus7u7.github.io/shpkg-builds/packages.tar.xz" >> ~/.config/shpkg_repo.list
+echo "https://github.com/Yisus7u7/shpkg-builds.git" > ~/.config/shpkg_repo.list
 ```
 
 And run :
