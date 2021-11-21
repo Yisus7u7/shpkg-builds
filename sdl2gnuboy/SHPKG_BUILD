@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# package info
+shpkg_name="sdl2gnuboy"
+shpkg_description="A Multiplatform Gameboy Emulator. Free Software"
+shpkg_version=1.2.1
+shpkg_source=https://github.com/ONUGOD/SDL2-GNUBoy-Termux
+# package build and runtime dependencies
+shpkg_build_depends="clang make"
+shpkg_depends="sdl2"
+# package source code
+shpkg_source="https://github.com/ONUGOD/SDL2-GNUBoy-Termux"
+
+prepare(){
+        cd ${SRCDIR}
+}
+
+build(){
+        make
+}
+
+finish(){
+        echo "Installing sdl2gnuboy"
+        ${SHPKG_SUDO} make install
+}
+
+remove(){
+        ${SHPKG_SUDO} rm -rf $PREFIX/bin/sdl2gnuboy
+}
