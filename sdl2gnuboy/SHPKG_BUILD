@@ -11,6 +11,8 @@ shpkg_depends="sdl2"
 # package source code
 shpkg_source="https://github.com/ONUGOD/SDL2-GNUBoy-Termux"
 
+shpkg_src_use_git="true"
+
 prepare(){
         cd ${SRCDIR}
 }
