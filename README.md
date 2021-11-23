@@ -37,6 +37,8 @@ If when installing a package it tells you that if you want to delete the build d
 - pfetch 
 - flat-remix-gtk-theme
 - file-roller
+- sdlgnuboy
+- tinywm
 
 > Over time more packages will be added 
 
