@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# package info
+shpkg_name="tinywm"
+shpkg_description="TinyWM is a ridiculously tiny window manager implemented in nearly as few lines
+of C as possible, without being obfuscated or entirely useless. XCB port"
+shpkg_version=1.0
+shpkg_source=https://github.com/stefanbidi/tinywm-xcb
+# package build and runtime dependencies
+shpkg_build_depends="clang"
+shpkg_depends="libxcb xcb-util"
+# package source code
+shpkg_source="https://github.com/stefanbidi/tinywm-xcb"
+
+shpkg_src_use_git="true"
+
+prepare(){
+        cd ${SRCDIR}
+}
+
+build(){
+        gcc -o tinywm tinywm-xcb.c -lxcb -lxcb-util
+}
+
+finish(){
+        echo "Installing TinyWM"
+        ${SHPKG_SUDO} mv tinywm $PREFIX/bin/
+}
+
+remove(){
+        ${SHPKG_SUDO} rm -rf $PREFIX/bin/tinywm
+}
