@@ -1,5 +1,9 @@
+#!/bin/bash
 # package name
-shpkg_name="qt5ct - theme manager for qt5"
+shpkg_name="qt5ct"
+shpkg_description="Theme manager for qt5"
+shpkg_version=git+9f60cd2352a4dcc55c8ca267f29bd8fff5c6a659
+shpkg_source=https://github.com/desktop-app/qt5ct
 
 # package build and runtime dependencies
 shpkg_build_depends="clang make qt5-qttools"
@@ -16,7 +20,7 @@ prepare(){
 }
 
 build(){
-	make
+	make -j$(nproc)
 }
 
 finish(){

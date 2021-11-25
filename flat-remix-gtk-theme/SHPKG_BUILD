@@ -1,6 +1,10 @@
-# package name
-shpkg_name="flat-remix-gtk-theme | git build"
+#!/bin/bash
 
+# package info
+shpkg_name="flat-remix-gtk-theme"
+shpkg_description="Flat remix gtk theme for termux x11"
+shpkg_version=git+a00332545430b19dae171e965becc36d98448e83
+shpkg_source=https://github.com/daniruiz/flat-remix-gtk
 # package build and runtime dependencies
 shpkg_build_depends="make"
 shpkg_depends="gtk2 gtk3"
@@ -21,9 +25,9 @@ build(){
 
 finish(){
 	echo "Installing flat-remix-gtk-theme..."
-	${SHPKG_SUDO} cp -rf Flat-Remix-GTK-* $PREFIX/share/themes/
+	mv Flat-Remix-GTK-* $PREFIX/share/themes/
 }
 
 remove(){
-        ${SHPKG_SUDO} rm -rf $PREFIX/share/themes/Flat-Remix-GTK-*
+	rm -rf $PREFIX/share/themes/Flat-Remix-GTK-*
 }

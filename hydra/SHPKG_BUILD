@@ -4,7 +4,7 @@
 shpkg_name="hydra"
 shpkg_description="A passaword cracker tool support GUI (gtk)"
 shpkg_version=9.2
-shpkg_source=https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.2.tar.gz
+shpkg_source=https://github.com/vanhauser-thc/thc-hydra
 # package build and runtime dependencies
 shpkg_build_depends="clang make"
 shpkg_depends="openssl openssl-tool libssh sslscan libcap ncurses-utils libidn libcrypt libedit libpcreposix pcre libssh zlib wget gtk2 gtk3 libglade db"
@@ -17,12 +17,12 @@ prepare(){
 }
 
 build(){
-	make -j$(nproc)
+	make j$(nproc)
 }
 
 finish(){
 	echo "Installing hydra and Xhydra"
-	${SHPKG_SUDO} make install
+	make install
 }
 
 remove(){

@@ -1,6 +1,9 @@
-# package name
-shpkg_name="feathernotes | Qt notes app"
-
+#!/bin/bash
+# package info
+shpkg_name="feathernotes"
+shpkg_description="Qt notes app"
+shpkg_version=0.9.0
+shpkg_source=https://github.com/tsujan/FeatherNotes
 # package build and runtime dependencies
 shpkg_build_depends="clang make qt5-qttools cmake"
 shpkg_depends="qt5-qtbase qt5-qtsvg libx11 hunspell hicolor-icon-theme"

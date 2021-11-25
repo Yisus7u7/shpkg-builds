@@ -3,24 +3,13 @@ scripts for build packages in termux using shpkg
 
 ### Installation:
 
-Please install shpkg:
-
-https://github.com/shpkg/shpkg
-
-Then enter these commands:
+Install [shpkg](https://github.com/shpkg/shpkg) and my repo
 
 ```bash
-pkg update
-
-pkg install make cmake clang x11-repo
+cd $PREFIX/bin/ && curl -fsSL https://raw.githubusercontent.com/WMCB-Tech/shpkg/master/shpkg | tee shpkg && chmod +x shpkg && pkg install make cmake clang x11-repo git -y && cd && mkdir -p .config &&  echo "https://github.com/Yisus7u7/shpkg-builds.git" > ~/.config/shpkg_repo.list && shpkg update
 ```
 
-Add repo url for shpkg packages :
 
-
-```bash
-echo "https://github.com/Yisus7u7/shpkg-builds.git" > ~/.config/shpkg_repo.list
-```
 
 And run :
 
